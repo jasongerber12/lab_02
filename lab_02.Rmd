@@ -1,12 +1,14 @@
 ---
 title: "Lab 02"
-author: ""
-date: ""
-output: 
+author: "Jason Gerber"
+date: "2/1/2021"
+output:
+  pdf_document:
+    toc: yes
   html_document:
-    toc: true
-    number_sections: false
-    toc_float: true
+    toc: yes
+    number_sections: no
+    toc_float: yes
     df_print: paged
 ---
 
@@ -44,6 +46,8 @@ need to set the class attribute to `"POSIXct"`
 
 ```{r}
 z <- seq(0, 3600 * 10, by = 3600)
+
+as.Date.POSIXct(z)
 ```
 
 What do you notice about the date-time? If you are unsure, check out
@@ -66,11 +70,36 @@ Complete the following without using any loops.
 
 1. Subset only the letters from `x`.
 
+```{r}
+x[is.na(as.numeric(x))]
+
+```
+
 2. Subset only the negative numbers from `x`.
+
+```{r}
+x <- x[!is.na(as.numeric(x))]
+x[x<0]
+```
 
 3. Select the numbers divisible by 3 from `x`.
 
+```{r}
+x <- x[!is.na(as.numeric(x))]
+x <- as.numeric(x)
+x[(x %% 3) == 0]
+
+
+```
+
 4. Remove all values with an even index from `x`.
+
+```{r}
+x[-seq(2, length(x), 2)]
+
+
+
+```
 
 
 
